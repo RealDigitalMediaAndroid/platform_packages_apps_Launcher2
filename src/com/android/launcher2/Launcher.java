@@ -384,6 +384,14 @@ public final class Launcher extends Activity
         checkForLocaleChange();
         setContentView(R.layout.launcher);
         setupViews();
+
+        // Harvey - Disable Cling
+        mSharedPrefs.edit()
+                .putBoolean(Cling.WORKSPACE_CLING_DISMISSED_KEY, true)
+                .putBoolean(Cling.ALLAPPS_CLING_DISMISSED_KEY, true)
+                .putBoolean(Cling.FOLDER_CLING_DISMISSED_KEY, true)
+                .commit();
+
         showFirstRunWorkspaceCling();
 
         registerContentObservers();
